@@ -21,7 +21,7 @@ import PopUp from './Controls/Remote/RemoteMutePopUp'
  * @param props {@link PropsInterface}
  */
 const AgoraUIKit: React.FC<PropsInterface> = (props) => {
-  const { styleProps, rtcProps } = props
+  const { styleProps, rtcProps, settings } = props
   const { UIKitContainer } = styleProps || {}
 
   return (
@@ -35,7 +35,7 @@ const AgoraUIKit: React.FC<PropsInterface> = (props) => {
         {rtcProps.role === 'audience' ? (
           <VideocallUI />
         ) : (
-          <TracksConfigure>
+          <TracksConfigure enableVideo={!!settings?.enableVideo}>
             <VideocallUI />
           </TracksConfigure>
         )}
